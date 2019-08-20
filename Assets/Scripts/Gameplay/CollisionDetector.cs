@@ -10,6 +10,7 @@ public class CollisionDetector : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody>();
         coll = GetComponent<Collider>();
+        Physics.gravity = new Vector3(0, -150, 0);
     }
 
     private void OnTriggerEnter(Collider other)

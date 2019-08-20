@@ -18,7 +18,7 @@ public class ScissorsAnimation : MonoBehaviour
     {
         leftStartPosition = firstObject.localPosition;
         rightStartPosition = secondObject.localPosition;
-        startScale = new Vector3(0, 5, 5);
+        startScale = firstObject.localScale;
         StartCoroutine(ScisAnimation());
     }
 

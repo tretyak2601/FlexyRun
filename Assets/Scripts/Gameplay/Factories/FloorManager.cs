@@ -14,8 +14,6 @@ public class FloorManager : MonoBehaviour
     private LinkedList<Floor> floors = new LinkedList<Floor>();
     private List<GameObject> platformsList = new List<GameObject>();
 
-    private int platformLength = 35;
-
     private void Awake()
     {
         AddFloor();
@@ -27,6 +25,7 @@ public class FloorManager : MonoBehaviour
     public void AddFloor()
     {
         Vector3 floorScale = floorPrefab.transform.localScale;
+        float platformLength = platforms[0].transform.localScale.z;
 
         Vector3 instPos = floors.Count == 0 ?
             Vector3.zero + Vector3.forward * floorScale.z * 0.45f :
