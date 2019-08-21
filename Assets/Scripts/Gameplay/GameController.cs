@@ -45,6 +45,7 @@ public class GameController : MonoBehaviour
 
     public void Restart()
     {
+        flexy.Restart();
         flexy.transform.position = startFlexPosition;
         flexy.transform.localEulerAngles = Vector3.zero;
         flexy.Size.SetAvarageSize();

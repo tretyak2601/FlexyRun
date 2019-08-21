@@ -29,6 +29,7 @@ public class CollisionDetector : MonoBehaviour
             rigid.useGravity = true;
             Vector3 direction = new Vector3(Random.Range(-45, 45), 25, 75);
             rigid.AddForce(direction, ForceMode.Impulse);
+            coll.isTrigger = true;
         }
     }
 }
