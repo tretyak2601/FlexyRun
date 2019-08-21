@@ -444,7 +444,6 @@ MonoBehaviour:
   - {fileID: 2085762834915381384, guid: ebdea221cc7e86444b7947410fd5fada, type: 3}
   - {fileID: 2104839790450736766, guid: 704e1cc0d1f297f4e84682869e5895e8, type: 3}
   - {fileID: 3644515036070657689, guid: c6ba19309ffb205428b3eda23abdfc2e, type: 3}
-  yPos: -7.5
 --- !u!1 &354103688
 GameObject:
   m_ObjectHideFlags: 0
