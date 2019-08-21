@@ -35,8 +35,10 @@ public class MovingController : MonoBehaviour
 
     private void Update()
     {
-        if (isMoving && !GameController.Instance.GameOver)
+        if ((isMoving && !GameController.Instance.GameOver) || flexy.Jump.IsJumping)
             transform.Translate(Vector3.forward * speed);
+        else
+            transform.Translate(Vector3.forward * .1f);
     }
 
     IEnumerator SpeedUp()
@@ -44,9 +46,9 @@ public class MovingController : MonoBehaviour
         if (!speedUpSens)
             yield break;
 
-        speed += 0.6f;
-        yield return new WaitForSeconds(0.33f);
-        speed -= 0.5f;
+        speed += 1.1f;
+        yield return new WaitForSeconds(0.2f);
+        speed -= 1f;
     }
 
     IEnumerator SpeedDown()

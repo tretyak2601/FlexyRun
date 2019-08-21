@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class SizeController : MonoBehaviour
     float avarage = 0;
 
     public bool IsSizing { get; set; } = true;
+
+    public event Action OnDeltaMax;
 
     private void Awake()
     {
@@ -34,6 +37,9 @@ public class SizeController : MonoBehaviour
                 transform.localScale + new Vector3(-delta, delta, 0);
 
             transform.localPosition = new Vector3(transform.localPosition.x, transform.localPosition.y + delta / 2, transform.localPosition.z);
+
+            if (transform.localScale == new Vector3(minSize, maxSize, avarage) && delta > 3)
+                OnDeltaMax?.Invoke();
         }
 
         if (delta < 0 && transform.localScale.x < maxSize)

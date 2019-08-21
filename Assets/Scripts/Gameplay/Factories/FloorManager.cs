@@ -9,8 +9,6 @@ public class FloorManager : MonoBehaviour
     [SerializeField] FlexyPlayer flexy;
     [SerializeField] GameObject[] platforms;
 
-    [SerializeField] float yPos = -7.5f;
-
     private LinkedList<Floor> floors = new LinkedList<Floor>();
     private List<GameObject> platformsList = new List<GameObject>();
 
@@ -32,7 +30,7 @@ public class FloorManager : MonoBehaviour
             floors.Last.Value.transform.position + Vector3.forward * platformLength + Vector3.forward * floorScale.z;
 
         var temp = Instantiate(floorPrefab, instPos, Quaternion.identity, transform);
-        temp.Init(barriers, 5, instPos);
+        temp.Init(barriers, 3, instPos);
         floors.AddLast(temp);
 
         var platTemp = Instantiate(platforms[Random.Range(0, platforms.Length)], temp.transform.position + Vector3.forward * (temp.transform.localScale.z / 2 + platformLength / 2), Quaternion.identity);

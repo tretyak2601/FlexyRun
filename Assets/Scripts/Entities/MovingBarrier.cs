@@ -18,7 +18,7 @@ public class MovingBarrier : Barrier
         while (true)
         {
             rotateObject.eulerAngles -= moveDirection * speed;
-            yield return new WaitForSeconds(Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime / 2);
         }
     }
 }

@@ -7,15 +7,16 @@ public class FlexyPlayer : MonoBehaviour
 {
     [SerializeField] MovingController moving;
     [SerializeField] SizeController size;
+    [SerializeField] JumpController jump;
 
     public MovingController Moving { get { return moving; } }
     public SizeController Size { get { return size; } }
+    public JumpController Jump { get { return jump; } }
 
     public event Action OnCreateFloorTriggered;
     public event Action OnBarrierTriggered;
     public event Action OnBarrierPassed;
-
-    int passCount = 0;
+    
     bool barrierTriggered = false;
 
     private void Awake()
@@ -40,19 +41,14 @@ public class FlexyPlayer : MonoBehaviour
         {
             barrierTriggered = false;
             OnBarrierPassed?.Invoke();
-            passCount++;
-
-            if (passCount == 3)
-            {
-                PlayAnimation();
-                passCount = 0;
-            }
+            new FadeAnimation(other.transform, this);
         }
     }
 
-    void PlayAnimation()
+    private void OnCollisionEnter(Collision collision)
     {
-
+        if (collision.gameObject.tag == Constants.FLOOR)
+            jump.IsJumping = false;
     }
 
     public void Restart() => barrierTriggered = false;
