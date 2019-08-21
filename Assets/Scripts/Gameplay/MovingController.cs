@@ -35,7 +35,7 @@ public class MovingController : MonoBehaviour
 
     private void Update()
     {
-        if (isMoving && !GameController.Instance.GameOver)
+        if ((isMoving && !GameController.Instance.GameOver) || flexy.Jump.IsJumping)
             transform.Translate(Vector3.forward * speed);
     }
 

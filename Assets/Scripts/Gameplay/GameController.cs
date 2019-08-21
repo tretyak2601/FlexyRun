@@ -48,6 +48,7 @@ public class GameController : MonoBehaviour
         flexy.transform.position = startFlexPosition;
         flexy.transform.localEulerAngles = Vector3.zero;
         flexy.Size.SetAvarageSize();
+        flexy.Jump.Restart();
         floorManager.Restart();
         scoring.ResetScore();
         GameOver = false;
