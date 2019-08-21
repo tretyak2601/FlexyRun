@@ -34,7 +34,7 @@ public class JumpController : MonoBehaviour
         {
             if (value && !jump && JumpCount > 0)
             {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * 100, ForceMode.Impulse);
+                GetComponent<Rigidbody>().AddForce(Vector3.up * 75, ForceMode.Impulse);
                 JumpCount--;
             }
 

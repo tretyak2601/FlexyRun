@@ -17,7 +17,6 @@ public class FlexyPlayer : MonoBehaviour
     public event Action OnBarrierTriggered;
     public event Action OnBarrierPassed;
 
-    int passCount = 0;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,13 +27,7 @@ public class FlexyPlayer : MonoBehaviour
         else if (other.tag == Constants.PASS)
         {
             OnBarrierPassed?.Invoke();
-            passCount++;
-            
-            if (passCount == 3)
-            {
-                PlayAnimation();
-                passCount = 0;
-            }
+            new FadeAnimation(other.transform, this);
         }
     }
 
@@ -42,10 +35,5 @@ public class FlexyPlayer : MonoBehaviour
     {
         if (collision.gameObject.tag == Constants.FLOOR)
             jump.IsJumping = false;
-    }
-
-    void PlayAnimation()
-    {
-
     }
 }
