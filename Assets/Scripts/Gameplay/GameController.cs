@@ -7,6 +7,7 @@ public class GameController : MonoBehaviour
     [SerializeField] FlexyPlayer flexy;
     [SerializeField] FloorManager floorManager;
     [SerializeField] ScoreManager scoring;
+    [SerializeField] BackgroundColorChanger colorChanger;
 
     public static GameController Instance;
 
@@ -53,6 +54,7 @@ public class GameController : MonoBehaviour
         floorManager.Restart();
         scoring.ResetScore();
         RageMode.Instance.Restart();
+        colorChanger.Restart();
         GameOver = false;
     }
 }
