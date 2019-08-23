@@ -10,7 +10,8 @@ public class CameraControll : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 desiredPosition = target.position - offset;
+        Vector3 newOffset = RageMode.Instance.IsRageMode ? offset + Vector3.forward * 25 : offset;
+        Vector3 desiredPosition = target.position - newOffset;
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, 0.1f);
         transform.position = smoothedPosition;
     }

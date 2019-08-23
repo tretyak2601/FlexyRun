@@ -52,6 +52,7 @@ public class GameController : MonoBehaviour
         flexy.Jump.Restart();
         floorManager.Restart();
         scoring.ResetScore();
+        RageMode.Instance.Restart();
         GameOver = false;
     }
 }
